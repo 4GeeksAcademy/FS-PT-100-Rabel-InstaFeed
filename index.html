@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    
     <nav class="navbar navbar-expand-lg bg-body-tertiary px-3">
         <div class="container-fluid">
             <a class="navbar-brand d-flex align-items-center gap-2" href="#">
@@ -23,11 +22,10 @@
                     <li class="nav-item me-3">
                         <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#postModal">
                             <i class="fas fa-plus"></i>
-                            <span class="d-none d-md-inline">Crear nuevo post</span>
+                            <span class="d-none d-md-inline">Create New Post</span>
                         </button>
                     </li>
-                    <!-- Menú desplegable -->
-                    <li class="nav-item dropdown">
+                    <div class="nav-item dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
                             <i class="fas fa-cog"></i>
                         </button>
@@ -37,19 +35,18 @@
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
                         </ul>
-                    </li>
+                    </div>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Modal para Crear Post -->
     <div class="modal fade" id="postModal" tabindex="-1" aria-labelledby="postModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="postModalLabel">Crear Nuevo Post</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form>
@@ -62,92 +59,216 @@
                             <input type="file" class="form-control">
                         </div>
                         <button type="submit" class="btn btn-primary">Publicar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
-    
-    <div class="container mt-3 mb-4">
-        <div class="row justify-content-center">
-            <div class="col-auto">
-                <div class="btn-group" role="group">
-                    <input type="radio" class="btn-check" name="viewMode" id="gridView" autocomplete="off" checked>
-                    <label class="btn btn-outline-primary" for="gridView"><i class="fas fa-th-large"></i></label>
+    <div class="container mt-4">
+        <ul class="nav nav-tabs justify-content-center" id="viewTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="grid-tab" data-bs-toggle="tab" 
+                        data-bs-target="#grid-view" type="button" role="tab">
+                    <i class="fas fa-th-large"></i> Grid
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="list-tab" data-bs-toggle="tab" 
+                        data-bs-target="#list-view" type="button" role="tab">
+                    <i class="fas fa-list"></i> List
+                </button>
+            </li>
+        </ul>
+        <div class="tab-content" id="viewTabsContent">
+            <div class="tab-pane fade show active" id="grid-view" role="tabpanel">
+                <div class="row row-cols-1 row-cols-md-3 g-4 mt-3">
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="ratio ratio-1x1">
+                                <img src="https://picsum.photos/id/40/300/300" 
+                                     class="card-img-top object-fit-cover" 
+                                     alt="Imagen 1">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Mi mascota</h5>
+                                <p class="card-text">❤️ 350 Likes</p>
+                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="ratio ratio-1x1">
+                                <img src="https://picsum.photos/300/300" 
+                                     class="card-img-top object-fit-cover" 
+                                     alt="Imagen 2">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Atardecer</h5>
+                                <p class="card-text">❤️ 210 Likes</p>
+                                <p class="card-text">Hermosa puesta de sol en la playa...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="ratio ratio-1x1">
+                                <img src="https://picsum.photos/300/300?grayscale" 
+                                     class="card-img-top object-fit-cover" 
+                                     alt="Imagen 3">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Ciudad nocturna</h5>
+                                <p class="card-text">❤️ 450 Likes</p>
+                                <p class="card-text">Rascacielos iluminados por la noche...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="ratio ratio-1x1">
+                                <img src="https://picsum.photos/300/300?random=4" 
+                                     class="card-img-top object-fit-cover" 
+                                     alt="Imagen 4">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Montañas</h5>
+                                <p class="card-text">❤️ 320 Likes</p>
+                                <p class="card-text">Paisaje montañoso al amanecer...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="ratio ratio-1x1">
+                                <img src="https://picsum.photos/300/300?random=5" 
+                                     class="card-img-top object-fit-cover" 
+                                     alt="Imagen 5">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Café matutino</h5>
+                                <p class="card-text">❤️ 280 Likes</p>
+                                <p class="card-text">El mejor compañero para empezar el día...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="ratio ratio-1x1">
+                                <img src="https://picsum.photos/300/300?random=6" 
+                                     class="card-img-top object-fit-cover" 
+                                     alt="Imagen 6">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Arte callejero</h5>
+                                <p class="card-text">❤️ 410 Likes</p>
+                                <p class="card-text">Mural urbano lleno de color...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                    <input type="radio" class="btn-check" name="viewMode" id="listView" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="listView"><i class="fas fa-list"></i></label>
+            <!-- Vista Lista -->
+            <div class="tab-pane fade" id="list-view" role="tabpanel">
+                <div class="row row-cols-1 g-4 mt-3">
+                    <div class="col">
+                        <div class="card">
+                            <div class="ratio ratio-16x9">
+                                <img src="https://picsum.photos/id/40/1200/800" 
+                                     class="card-img-top object-fit-cover" 
+                                     alt="Imagen 1">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Mi mascota</h5>
+                                <p class="card-text">❤️ 350 Likes</p>
+                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+                                <small class="text-muted">Publicado hace 2 horas</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="ratio ratio-16x9">
+                                <img src="https://picsum.photos/1200/800?random=1" 
+                                     class="card-img-top object-fit-cover" 
+                                     alt="Imagen 2">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Atardecer</h5>
+                                <p class="card-text">❤️ 210 Likes</p>
+                                <p class="card-text">Hermosa puesta de sol en la playa...</p>
+                                <small class="text-muted">Publicado hace 4 horas</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="ratio ratio-16x9">
+                                <img src="https://picsum.photos/1200/800?grayscale" 
+                                     class="card-img-top object-fit-cover" 
+                                     alt="Imagen 3">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Ciudad nocturna</h5>
+                                <p class="card-text">❤️ 450 Likes</p>
+                                <p class="card-text">Rascacielos iluminados por la noche...</p>
+                                <small class="text-muted">Publicado hace 6 horas</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="ratio ratio-16x9">
+                                <img src="https://picsum.photos/1200/800?random=4" 
+                                     class="card-img-top object-fit-cover" 
+                                     alt="Imagen 4">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Montañas</h5>
+                                <p class="card-text">❤️ 320 Likes</p>
+                                <p class="card-text">Paisaje montañoso al amanecer...</p>
+                                <small class="text-muted">Publicado hace 8 horas</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="ratio ratio-16x9">
+                                <img src="https://picsum.photos/1200/800?random=5" 
+                                     class="card-img-top object-fit-cover" 
+                                     alt="Imagen 5">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Café matutino</h5>
+                                <p class="card-text">❤️ 280 Likes</p>
+                                <p class="card-text">El mejor compañero para empezar el día...</p>
+                                <small class="text-muted">Publicado hace 10 horas</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="ratio ratio-16x9">
+                                <img src="https://picsum.photos/1200/800?random=6" 
+                                     class="card-img-top object-fit-cover" 
+                                     alt="Imagen 6">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Arte callejero</h5>
+                                <p class="card-text">❤️ 410 Likes</p>
+                                <p class="card-text">Mural urbano lleno de color...</p>
+                                <small class="text-muted">Publicado hace 12 horas</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Galería de fotos -->
-    <div class="container">
-        <div id="photoContainer" class="row row-cols-1 row-cols-md-3 g-3">
-            <div class="col">
-                <div class="card h-100">
-                    <img src="https://picsum.photos/300/300?random=1" class="card-img-top" alt="Imagen 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Mi mascota</h5>
-                        <p class="card-text"> 245 Likes</p>
-                        <p class="card-text">Un día en el parque con mi mejor amigo peludo</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="https://picsum.photos/300/300?random=2" class="card-img-top" alt="Imagen 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Atardecer </h5>
-                        <p class="card-text"> 189 Likes</p>
-                        <p class="card-text">Los colores del cielo al final del día</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="https://picsum.photos/300/300?random=3" class="card-img-top" alt="Imagen 3">
-                    <div class="card-body">
-                        <h5 class="card-title">Aventura</h5>
-                        <p class="card-text"> 302 Likes</p>
-                        <p class="card-text">El mejor compañero para una tarde de trabajo</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="https://picsum.photos/300/300?random=4" class="card-img-top" alt="Imagen 4">
-                    <div class="card-body">
-                        <h5 class="card-title">Noche estrellada</h5>
-                        <p class="card-text"> 427 Likes</p>
-                        <p class="card-text">Campamento bajo las estrellas</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="https://picsum.photos/300/300?random=5" class="card-img-top" alt="Imagen 5">
-                    <div class="card-body">
-                        <h5 class="card-title">Arte</h5>
-                        <p class="card-text"> 156 Likes</p>
-                        <p class="card-text">Descubriendo joyas callejeras</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="https://picsum.photos/300/300?random=6" class="card-img-top" alt="Imagen 6">
-                    <div class="card-body">
-                        <h5 class="card-title">Desayuno</h5>
-                        <p class="card-text"> 284 Likes</p>
-                        <p class="card-text">Energía para empezar el día</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
